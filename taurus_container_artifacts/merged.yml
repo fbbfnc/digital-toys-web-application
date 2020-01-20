@@ -1,0 +1,171 @@
+---
+execution:
+- concurrency: 20
+  hold-for: 19m
+  ramp-up: 1m
+  scenario: digital toys
+scenarios:
+  digital toys:
+    headers:
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+      Sec-Fetch-User: ?1
+      Upgrade-Insecure-Requests: '1'
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36
+    requests:
+    - do:
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 0ms
+        url: http://localhost/
+      - headers: {}
+        label: http://localhost/user/signUp
+        method: GET
+        think-time: 27734ms
+        url: http://localhost/user/signUp
+      - body:
+          email: Test@gmail.com
+          fullName: Test
+          password: '********'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/signUp
+        method: POST
+        think-time: 11108ms
+        url: http://localhost/user/signUp
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/
+        method: GET
+        think-time: 71ms
+        url: http://localhost/
+      - body:
+          productId: '1'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 6005ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '1'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1834ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 1946ms
+        url: http://localhost/
+      - body:
+          productId: '2'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 1885ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '2'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1356ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 2113ms
+        url: http://localhost/
+      - body:
+          productId: '3'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 1364ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '3'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1325ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 1354ms
+        url: http://localhost/
+      - headers: {}
+        label: http://localhost/order/addToCart
+        method: GET
+        think-time: 3971ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 2190ms
+        url: http://localhost/order/checkOut
+      - body:
+          addressId: ''
+          checkOutFlow: 'true'
+          city: test
+          line1: test
+          line2: test
+          state: AL
+          zip: '12345'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/addAddress
+        method: POST
+        think-time: 10707ms
+        url: http://localhost/user/addAddress
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 58ms
+        url: http://localhost/order/checkOut
+      - body:
+          cardId: ''
+          cardNumber: '123456780'
+          checkOutFlow: 'true'
+          expirationMonthYear: 01/2020
+          nameOnCard: Test
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/addCard
+        method: POST
+        think-time: 9725ms
+        url: http://localhost/user/addCard
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 43ms
+        url: http://localhost/order/checkOut
+      - headers: {}
+        label: http://localhost/order/placeOrder
+        method: GET
+        think-time: 3791ms
+        url: http://localhost/order/placeOrder
+      - headers: {}
+        label: http://localhost/user/signOut
+        method: GET
+        think-time: 5136ms
+        url: http://localhost/user/signOut
+      force-parent-sample: false
+      transaction: Test
+

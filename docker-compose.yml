@@ -6,3 +6,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - '80:8080'
+  taurus:
+    image: blazemeter/taurus
+    container_name: taurus
+    volumes:
+      - ./taurus_container_scripts:/bzt-configs:rw
+      - ./taurus_container_artifacts:/tmp/artifacts:rw
+    privileged: true
+    command: DGT-JMETER.yaml
+

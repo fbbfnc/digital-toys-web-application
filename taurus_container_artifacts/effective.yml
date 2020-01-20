@@ -1,0 +1,373 @@
+---
+cli:
+  linter:
+    disable: false
+    ignored-warnings: []
+    lint-and-exit: false
+    warn-on-unfamiliar-fields: false
+cli-aliases:
+  cloud:
+    provisioning: cloud
+  detach:
+    modules:
+      cloud:
+        detach: true
+  func:
+    modules:
+      console:
+        disable: true
+    settings:
+      aggregator: functional-consolidator
+  gui:
+    modules:
+      jmeter:
+        gui: true
+  install-tools:
+    services:
+    - install-checker
+  lint:
+    cli:
+      linter:
+        lint-and-exit: true
+  local:
+    provisioning: local
+  locations:
+    modules:
+      cloud:
+        dump-locations: true
+    provisioning: cloud
+  nolint:
+    cli:
+      linter:
+        disable: true
+  public:
+    modules:
+      blazemeter:
+        public-report: true
+  report:
+    reporting:
+    - blazemeter
+  sequential:
+    modules:
+      local:
+        sequential: true
+execution:
+- concurrency:
+    local: 20
+  executor: jmeter
+  hold-for: 19m
+  ramp-up: 1m
+  scenario: digital toys
+  throughput: {}
+included-configs: []
+install-id: Docker
+modules:
+  ab:
+    class: bzt.modules.ab.ApacheBenchmarkExecutor
+  android-emulator:
+    class: bzt.modules.services.AndroidEmulatorLoader
+  apiritif:
+    class: bzt.modules.apiritif.ApiritifNoseExecutor
+  appium:
+    class: bzt.modules.services.AppiumLoader
+  blazemeter:
+    class: bzt.modules.blazemeter.BlazeMeterUploader
+  capturehar:
+    class: bzt.modules.blazemeter.ServiceStubCaptureHAR
+  cloud:
+    class: bzt.modules.blazemeter.CloudProvisioning
+    default-location: us-central1-a
+  console:
+    class: bzt.modules.console.ConsoleStatusReporter
+  consolidator:
+    class: bzt.modules.aggregator.ConsolidatingAggregator
+    percentiles:
+    - 0.0
+    - 50.0
+    - 90.0
+    - 95.0
+    - 99.0
+    - 99.9
+    - 100.0
+  external-results-loader:
+    class: bzt.modules.external.ExternalResultsLoader
+  final-stats:
+    class: bzt.modules.reporting.FinalStatus
+  final_stats:
+    class: bzt.modules.reporting.FinalStatus
+  functional-consolidator:
+    class: bzt.modules.functional.FunctionalAggregator
+  gatling:
+    class: bzt.modules.gatling.GatlingExecutor
+    properties:
+      gatling.data.file.bufferSize: 256
+  grinder:
+    class: bzt.modules.grinder.GrinderExecutor
+    properties:
+      grinder.useConsole: false
+  install-checker:
+    class: bzt.modules.services.InstallChecker
+  jmeter:
+    class: bzt.modules.jmeter.JMeterExecutor
+    path: /root/.bzt/jmeter-taurus/5.1.1/bin/jmeter.sh
+    plugins:
+    - jpgc-casutg
+    - jpgc-dummy
+    - jpgc-ffw
+    - jpgc-fifo
+    - jpgc-functions
+    - jpgc-json
+    - jpgc-perfmon
+    - jpgc-prmctl
+    - jpgc-tst
+    properties:
+      jmeter.save.saveservice.autoflush: 'true'
+      jmeter.save.saveservice.connect_time: 'true'
+      jmeterengine.force.system.exit: 'true'
+      summariser.name: ''
+    protocol-handlers:
+      http: bzt.jmx.http.HTTPProtocolHandler
+    system-properties:
+      sun.net.inetaddr.ttl: 0
+    version: 5.1.1
+  junit:
+    class: bzt.modules.java.JUnitTester
+  junit-xml:
+    class: bzt.modules.reporting.JUnitXMLReporter
+  local:
+    class: bzt.modules.provisioning.Local
+  locust:
+    class: bzt.modules.locustio.LocustIOExecutor
+  mocha:
+    class: bzt.modules.javascript.MochaTester
+  molotov:
+    class: bzt.modules.molotov.MolotovExecutor
+  monitoring:
+    class: bzt.modules.monitoring.Monitoring
+  newman:
+    class: bzt.modules.javascript.NewmanExecutor
+  nose:
+    class: bzt.modules.apiritif.ApiritifNoseExecutor
+  nunit:
+    class: bzt.modules.csharp.NUnitExecutor
+  passfail:
+    class: bzt.modules.passfail.PassFailStatus
+  pbench:
+    class: bzt.modules.pbench.PBenchExecutor
+    enhanced: true
+  proxy2jmx:
+    class: bzt.modules.proxy2jmx.Proxy2JMX
+  pytest:
+    class: bzt.modules.pytest.PyTestExecutor
+  robot:
+    class: bzt.modules.robot.RobotExecutor
+  rspec:
+    class: bzt.modules.ruby.RSpecTester
+  screenshoter:
+    class: bzt.modules.blazemeter.ServiceStubScreenshoter
+  selenium:
+    class: bzt.modules.selenium.SeleniumExecutor
+  shellexec:
+    class: bzt.modules.shellexec.ShellExecutor
+  siege:
+    class: bzt.modules.siege.SiegeExecutor
+  testng:
+    class: bzt.modules.java.TestNGTester
+  tsung:
+    class: bzt.modules.tsung.TsungExecutor
+  unpacker:
+    class: bzt.modules.services.Unpacker
+  virtual-display:
+    class: bzt.modules.services.VirtualDisplay
+  wdio:
+    class: bzt.modules.javascript.WebdriverIOExecutor
+provisioning: local
+reporting:
+- module: final-stats
+- module: console
+scenarios:
+  digital toys:
+    headers:
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+      Sec-Fetch-User: ?1
+      Upgrade-Insecure-Requests: '1'
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36
+    requests:
+    - do:
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 0ms
+        url: http://localhost/
+      - headers: {}
+        label: http://localhost/user/signUp
+        method: GET
+        think-time: 27734ms
+        url: http://localhost/user/signUp
+      - body:
+          email: Test@gmail.com
+          fullName: Test
+          password: '********'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/signUp
+        method: POST
+        think-time: 11108ms
+        url: http://localhost/user/signUp
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/
+        method: GET
+        think-time: 71ms
+        url: http://localhost/
+      - body:
+          productId: '1'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 6005ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '1'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1834ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 1946ms
+        url: http://localhost/
+      - body:
+          productId: '2'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 1885ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '2'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1356ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 2113ms
+        url: http://localhost/
+      - body:
+          productId: '3'
+        headers: {}
+        label: http://localhost/product/detail
+        method: GET
+        think-time: 1364ms
+        url: http://localhost/product/detail
+      - body:
+          productId: '3'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/addToCart
+        method: POST
+        think-time: 1325ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/
+        method: GET
+        think-time: 1354ms
+        url: http://localhost/
+      - headers: {}
+        label: http://localhost/order/addToCart
+        method: GET
+        think-time: 3971ms
+        url: http://localhost/order/addToCart
+      - headers: {}
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 2190ms
+        url: http://localhost/order/checkOut
+      - body:
+          addressId: ''
+          checkOutFlow: 'true'
+          city: test
+          line1: test
+          line2: test
+          state: AL
+          zip: '12345'
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/addAddress
+        method: POST
+        think-time: 10707ms
+        url: http://localhost/user/addAddress
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 58ms
+        url: http://localhost/order/checkOut
+      - body:
+          cardId: ''
+          cardNumber: '123456780'
+          checkOutFlow: 'true'
+          expirationMonthYear: 01/2020
+          nameOnCard: Test
+        headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/user/addCard
+        method: POST
+        think-time: 9725ms
+        url: http://localhost/user/addCard
+      - headers:
+          Content-Type: application/x-www-form-urlencoded
+          Origin: http://localhost
+        label: http://localhost/order/checkOut
+        method: GET
+        think-time: 43ms
+        url: http://localhost/order/checkOut
+      - headers: {}
+        label: http://localhost/order/placeOrder
+        method: GET
+        think-time: 3791ms
+        url: http://localhost/order/placeOrder
+      - headers: {}
+        label: http://localhost/user/signOut
+        method: GET
+        think-time: 5136ms
+        url: http://localhost/user/signOut
+      force-parent-sample: false
+      transaction: Test
+services:
+- local:
+  - metrics:
+    - cpu
+    - mem
+    - bytes-sent
+    - bytes-recv
+    - disk-read
+    - disk-write
+    - disk-space
+    - engine-loop
+    - conn-all
+  module: monitoring
+settings:
+  aggregator: consolidator
+  artifacts-dir: /tmp/artifacts
+  default-executor: jmeter
+  env:
+    OBJC_DISABLE_INITIALIZE_FORK_SAFETY: 'YES'
+    TAURUS_ARTIFACTS_DIR: /tmp/artifacts
+version: 1.14.0
+

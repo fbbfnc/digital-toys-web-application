@@ -1,0 +1,392 @@
+[2020-01-19 23:53:55,359 INFO root] Taurus CLI Tool v1.14.0
+[2020-01-19 23:53:55,361 DEBUG root] Command-line options: {'log': '/tmp/artifacts/bzt.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-01-19 23:53:55,361 DEBUG root] Python: CPython 3.6.9
+[2020-01-19 23:53:55,362 DEBUG root] OS: uname_result(system='Linux', node='5718f0179ebf', release='4.9.184-linuxkit', version='#1 SMP Tue Jul 2 22:58:16 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-01-19 23:53:55,363 INFO root] Starting with configs: []
+[2020-01-19 23:53:55,364 DEBUG root] Using personal config: /root/.bzt-rc
+[2020-01-19 23:53:55,364 INFO Engine] Configuring...
+[2020-01-19 23:53:55,365 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2020-01-19 23:53:55,434 DEBUG Engine] Base configs list: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:53:55,434 DEBUG Engine.Configuration] Configs: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:53:55,435 DEBUG Engine.Configuration] Reading /usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2020-01-19 23:53:55,469 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2020-01-19 23:53:55,471 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2020-01-19 23:53:55,472 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2020-01-19 23:53:55,473 DEBUG Engine] User configs list: ['/root/.bzt-rc']
+[2020-01-19 23:53:55,474 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:53:55,475 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:53:55,480 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:53:55,481 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:53:55,492 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:53:55,492 INFO Engine] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:53:55,492 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:53:55,496 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org:443
+[2020-01-19 23:53:55,496 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2020-01-19 23:53:55,501 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:53:55,527 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:53:55,530 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:53:55,533 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2020-01-19 23:53:55,534 DEBUG root] Linting config
+[2020-01-19 23:53:55,536 INFO Engine] Preparing...
+[2020-01-19 23:53:55,537 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-01-19 23:53:55,538 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-01-19 23:53:55,781 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/aggregator.py'>
+[2020-01-19 23:53:55,782 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-01-19 23:53:55,783 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-01-19 23:53:55,783 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-01-19 23:53:55,787 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/monitoring.py'>
+[2020-01-19 23:53:55,787 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-01-19 23:53:55,788 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-01-19 23:53:55,789 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py'>
+[2020-01-19 23:53:55,789 ERROR root] Config Error: No 'execution' is configured. Did you forget to pass config files?
+[2020-01-19 23:53:55,793 DEBUG root] TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+  File "/usr/local/lib/python3.6/dist-packages/bzt/cli.py", line 258, in perform
+    self.engine.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 195, in prepare
+    self.__prepare_provisioning()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 591, in __prepare_provisioning
+    self.provisioning.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py", line 70, in prepare
+    super(Local, self).prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/modules.py", line 129, in prepare
+    raise exc
+[2020-01-19 23:53:55,794 INFO Engine] Post-processing...
+[2020-01-19 23:53:55,794 DEBUG Engine.consolidator] Consolidator buffer[0]: dict_keys([])
+[2020-01-19 23:53:55,799 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:53:55,825 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:53:55,828 INFO root] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:53:55,828 WARNING root] Done performing with code: 1
+[2020-01-19 23:53:55,830 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:54:52,354 INFO root] Taurus CLI Tool v1.14.0
+[2020-01-19 23:54:52,355 DEBUG root] Command-line options: {'log': '/tmp/artifacts/bzt.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-01-19 23:54:52,356 DEBUG root] Python: CPython 3.6.9
+[2020-01-19 23:54:52,357 DEBUG root] OS: uname_result(system='Linux', node='5718f0179ebf', release='4.9.184-linuxkit', version='#1 SMP Tue Jul 2 22:58:16 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-01-19 23:54:52,357 INFO root] Starting with configs: []
+[2020-01-19 23:54:52,358 DEBUG root] Using personal config: /root/.bzt-rc
+[2020-01-19 23:54:52,359 INFO Engine] Configuring...
+[2020-01-19 23:54:52,360 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2020-01-19 23:54:52,380 DEBUG Engine] Base configs list: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:54:52,380 DEBUG Engine.Configuration] Configs: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:54:52,381 DEBUG Engine.Configuration] Reading /usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2020-01-19 23:54:52,413 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2020-01-19 23:54:52,415 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2020-01-19 23:54:52,416 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2020-01-19 23:54:52,417 DEBUG Engine] User configs list: ['/root/.bzt-rc']
+[2020-01-19 23:54:52,417 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:54:52,418 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:54:52,424 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:54:52,425 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:54:52,432 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:54:52,432 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:54:52,432 INFO Engine] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:54:52,436 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org:443
+[2020-01-19 23:54:52,438 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2020-01-19 23:54:52,443 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:54:52,468 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:54:52,471 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:54:52,474 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2020-01-19 23:54:52,475 DEBUG root] Linting config
+[2020-01-19 23:54:52,477 INFO Engine] Preparing...
+[2020-01-19 23:54:52,479 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-01-19 23:54:52,479 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-01-19 23:54:52,603 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/aggregator.py'>
+[2020-01-19 23:54:52,604 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-01-19 23:54:52,604 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-01-19 23:54:52,605 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-01-19 23:54:52,607 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/monitoring.py'>
+[2020-01-19 23:54:52,608 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-01-19 23:54:52,609 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-01-19 23:54:52,609 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py'>
+[2020-01-19 23:54:52,610 ERROR root] Config Error: No 'execution' is configured. Did you forget to pass config files?
+[2020-01-19 23:54:52,611 DEBUG root] TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+  File "/usr/local/lib/python3.6/dist-packages/bzt/cli.py", line 258, in perform
+    self.engine.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 195, in prepare
+    self.__prepare_provisioning()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 591, in __prepare_provisioning
+    self.provisioning.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py", line 70, in prepare
+    super(Local, self).prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/modules.py", line 129, in prepare
+    raise exc
+[2020-01-19 23:54:52,612 INFO Engine] Post-processing...
+[2020-01-19 23:54:52,613 DEBUG Engine.consolidator] Consolidator buffer[0]: dict_keys([])
+[2020-01-19 23:54:52,617 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:54:52,643 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:54:52,646 INFO root] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:54:52,647 WARNING root] Done performing with code: 1
+[2020-01-19 23:54:52,648 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:56:02,859 INFO root] Taurus CLI Tool v1.14.0
+[2020-01-19 23:56:02,860 DEBUG root] Command-line options: {'log': '/tmp/artifacts/bzt.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-01-19 23:56:02,861 DEBUG root] Python: CPython 3.6.9
+[2020-01-19 23:56:02,861 DEBUG root] OS: uname_result(system='Linux', node='5718f0179ebf', release='4.9.184-linuxkit', version='#1 SMP Tue Jul 2 22:58:16 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-01-19 23:56:02,862 INFO root] Starting with configs: []
+[2020-01-19 23:56:02,862 DEBUG root] Using personal config: /root/.bzt-rc
+[2020-01-19 23:56:02,863 INFO Engine] Configuring...
+[2020-01-19 23:56:02,863 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2020-01-19 23:56:02,882 DEBUG Engine] Base configs list: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:56:02,883 DEBUG Engine.Configuration] Configs: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:56:02,883 DEBUG Engine.Configuration] Reading /usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2020-01-19 23:56:02,915 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2020-01-19 23:56:02,916 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2020-01-19 23:56:02,917 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2020-01-19 23:56:02,918 DEBUG Engine] User configs list: ['/root/.bzt-rc']
+[2020-01-19 23:56:02,919 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:56:02,920 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:56:02,925 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc']
+[2020-01-19 23:56:02,926 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:56:02,932 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:56:02,932 INFO Engine] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:56:02,932 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:56:02,936 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org:443
+[2020-01-19 23:56:02,936 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2020-01-19 23:56:02,942 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:56:02,966 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:56:02,969 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:56:02,972 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2020-01-19 23:56:02,973 DEBUG root] Linting config
+[2020-01-19 23:56:02,976 INFO Engine] Preparing...
+[2020-01-19 23:56:02,977 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-01-19 23:56:02,977 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-01-19 23:56:03,100 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/aggregator.py'>
+[2020-01-19 23:56:03,101 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-01-19 23:56:03,101 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-01-19 23:56:03,102 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-01-19 23:56:03,104 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/monitoring.py'>
+[2020-01-19 23:56:03,105 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-01-19 23:56:03,105 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-01-19 23:56:03,106 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py'>
+[2020-01-19 23:56:03,106 ERROR root] Config Error: No 'execution' is configured. Did you forget to pass config files?
+[2020-01-19 23:56:03,108 DEBUG root] TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+  File "/usr/local/lib/python3.6/dist-packages/bzt/cli.py", line 258, in perform
+    self.engine.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 195, in prepare
+    self.__prepare_provisioning()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 591, in __prepare_provisioning
+    self.provisioning.prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py", line 70, in prepare
+    super(Local, self).prepare()
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/modules.py", line 129, in prepare
+    raise exc
+[2020-01-19 23:56:03,108 INFO Engine] Post-processing...
+[2020-01-19 23:56:03,109 DEBUG Engine.consolidator] Consolidator buffer[0]: dict_keys([])
+[2020-01-19 23:56:03,113 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:56:03,138 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:56:03,140 INFO root] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:56:03,140 WARNING root] Done performing with code: 1
+[2020-01-19 23:56:03,141 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:57:54,274 INFO root] Taurus CLI Tool v1.14.0
+[2020-01-19 23:57:54,275 DEBUG root] Command-line options: {'log': '/tmp/artifacts/bzt.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-01-19 23:57:54,276 DEBUG root] Python: CPython 3.6.9
+[2020-01-19 23:57:54,277 DEBUG root] OS: uname_result(system='Linux', node='e6404f7a3adc', release='4.9.184-linuxkit', version='#1 SMP Tue Jul 2 22:58:16 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-01-19 23:57:54,277 INFO root] Starting with configs: ['bzt', 'DGT-JMETER.yaml']
+[2020-01-19 23:57:54,278 DEBUG root] Using personal config: /root/.bzt-rc
+[2020-01-19 23:57:54,279 INFO Engine] Configuring...
+[2020-01-19 23:57:54,279 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2020-01-19 23:57:54,302 DEBUG Engine] Base configs list: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:57:54,302 DEBUG Engine.Configuration] Configs: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:57:54,303 DEBUG Engine.Configuration] Reading /usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2020-01-19 23:57:54,335 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2020-01-19 23:57:54,336 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2020-01-19 23:57:54,337 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2020-01-19 23:57:54,338 DEBUG Engine] User configs list: ['/root/.bzt-rc', 'bzt', 'DGT-JMETER.yaml']
+[2020-01-19 23:57:54,339 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', 'bzt', 'DGT-JMETER.yaml']
+[2020-01-19 23:57:54,340 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:57:54,346 ERROR root] Config Error: Error when reading config file 'bzt': [Errno 2] No such file or directory: 'bzt'
+[2020-01-19 23:57:54,348 DEBUG root] TaurusConfigError: Error when reading config file 'bzt': [Errno 2] No such file or directory: 'bzt'
+  File "/usr/local/lib/python3.6/dist-packages/bzt/cli.py", line 254, in perform
+    self.__configure(configs)
+  File "/usr/local/lib/python3.6/dist-packages/bzt/cli.py", line 168, in __configure
+    merged_config = self.engine.configure([bzt_rc] + configs, not self.options.no_system_configs)
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 102, in configure
+    merged_config = self._load_user_configs(user_configs)
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/engine.py", line 572, in _load_user_configs
+    self.config.load(user_configs)
+  File "/usr/local/lib/python3.6/dist-packages/bzt/engine/dicts.py", line 164, in load
+    raise TaurusConfigError("Error when reading config file '%s': %s" % (config_file, exc))
+[2020-01-19 23:57:54,349 INFO Engine] Post-processing...
+[2020-01-19 23:57:54,349 INFO root] Artifacts dir: None
+[2020-01-19 23:57:54,350 INFO root] Log file: /tmp/artifacts/bzt.log
+[2020-01-19 23:57:54,351 WARNING root] Done performing with code: 1
+[2020-01-19 23:57:54,352 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:58:37,341 INFO root] Taurus CLI Tool v1.14.0
+[2020-01-19 23:58:37,342 DEBUG root] Command-line options: {'log': '/tmp/artifacts/bzt.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-01-19 23:58:37,343 DEBUG root] Python: CPython 3.6.9
+[2020-01-19 23:58:37,343 DEBUG root] OS: uname_result(system='Linux', node='80233009d9ac', release='4.9.184-linuxkit', version='#1 SMP Tue Jul 2 22:58:16 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-01-19 23:58:37,344 INFO root] Starting with configs: ['DGT-JMETER.yaml']
+[2020-01-19 23:58:37,345 DEBUG root] Using personal config: /root/.bzt-rc
+[2020-01-19 23:58:37,345 INFO Engine] Configuring...
+[2020-01-19 23:58:37,346 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2020-01-19 23:58:37,365 DEBUG Engine] Base configs list: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:58:37,366 DEBUG Engine.Configuration] Configs: ['/usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml', '/etc/bzt.d/50-pbench-enhanced.json', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2020-01-19 23:58:37,366 DEBUG Engine.Configuration] Reading /usr/local/lib/python3.6/dist-packages/bzt/resources/10-base-config.yml as YAML
+[2020-01-19 23:58:37,400 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-pbench-enhanced.json as YAML
+[2020-01-19 23:58:37,402 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2020-01-19 23:58:37,403 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2020-01-19 23:58:37,404 DEBUG Engine] User configs list: ['/root/.bzt-rc', 'DGT-JMETER.yaml']
+[2020-01-19 23:58:37,404 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', 'DGT-JMETER.yaml']
+[2020-01-19 23:58:37,405 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:58:37,416 DEBUG Engine.Configuration] Reading DGT-JMETER.yaml as YAML
+[2020-01-19 23:58:37,451 DEBUG Engine.Configuration] Configs: ['/root/.bzt-rc', 'DGT-JMETER.yaml']
+[2020-01-19 23:58:37,452 DEBUG Engine.Configuration] Reading /root/.bzt-rc as YAML
+[2020-01-19 23:58:37,461 DEBUG Engine.Configuration] Reading DGT-JMETER.yaml as YAML
+[2020-01-19 23:58:37,499 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:58:37,499 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.14.0&installID=Docker
+[2020-01-19 23:58:37,499 INFO Engine] Artifacts dir: /tmp/artifacts
+[2020-01-19 23:58:37,502 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org:443
+[2020-01-19 23:58:37,504 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2020-01-19 23:58:37,511 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:58:37,558 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:58:37,561 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.yml
+[2020-01-19 23:58:37,565 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/merged.yml
+[2020-01-19 23:58:37,592 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.json
+[2020-01-19 23:58:37,595 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/merged.json
+[2020-01-19 23:58:37,597 DEBUG Engine] Add existing artifact (move=False): DGT-JMETER.yaml
+[2020-01-19 23:58:37,599 DEBUG Engine] Copying DGT-JMETER.yaml to /tmp/artifacts/DGT-JMETER.yaml
+[2020-01-19 23:58:37,607 DEBUG root] Closing log handler: /tmp/artifacts/bzt.log
+[2020-01-19 23:58:37,609 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2020-01-19 23:58:37,610 DEBUG root] Linting config
+[2020-01-19 23:58:37,615 INFO Engine] Preparing...
+[2020-01-19 23:58:37,616 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-01-19 23:58:37,626 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-01-19 23:58:37,796 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/aggregator.py'>
+[2020-01-19 23:58:37,797 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-01-19 23:58:37,798 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-01-19 23:58:37,798 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-01-19 23:58:37,800 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/monitoring.py'>
+[2020-01-19 23:58:37,800 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-01-19 23:58:37,801 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-01-19 23:58:37,801 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/provisioning.py'>
+[2020-01-19 23:58:37,802 DEBUG Engine] Module config: jmeter {'class': 'bzt.modules.jmeter.JMeterExecutor', 'protocol-handlers': {'http': 'bzt.jmx.http.HTTPProtocolHandler'}, 'plugins': ['jpgc-casutg', 'jpgc-dummy', 'jpgc-ffw', 'jpgc-fifo', 'jpgc-functions', 'jpgc-json', 'jpgc-perfmon', 'jpgc-prmctl', 'jpgc-tst'], 'properties': {'jmeter.save.saveservice.autoflush': 'true', 'jmeter.save.saveservice.connect_time': 'true', 'jmeterengine.force.system.exit': 'true', 'summariser.name': ''}}
+[2020-01-19 23:58:37,802 DEBUG root] Importing module: bzt.modules.jmeter
+[2020-01-19 23:58:37,818 DEBUG root] Loading class: 'JMeterExecutor' from <module 'bzt.modules.jmeter' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/jmeter.py'>
+[2020-01-19 23:58:37,818 DEBUG Engine.local] Preparing executor: jmeter/140446289855824
+[2020-01-19 23:58:37,819 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.log
+[2020-01-19 23:58:37,820 DEBUG Engine.jmeter] Checking if port 4445 is free
+[2020-01-19 23:58:37,822 DEBUG Engine.jmeter] Port 4445 is free
+[2020-01-19 23:58:37,822 DEBUG Engine.jmeter] Using port 4445 for management
+[2020-01-19 23:58:37,823 DEBUG Engine] New artifact filename: /tmp/artifacts/requests.jmx
+[2020-01-19 23:58:37,825 DEBUG root] Importing module: bzt.jmx.http
+[2020-01-19 23:58:37,826 DEBUG root] Loading class: 'HTTPProtocolHandler' from <module 'bzt.jmx.http' from '/usr/local/lib/python3.6/dist-packages/bzt/jmx/http.py'>
+[2020-01-19 23:58:37,835 DEBUG JMeterScenarioBuilder] Saving JMX to: /tmp/artifacts/requests.jmx
+[2020-01-19 23:58:37,842 DEBUG Engine.jmeter] Additional system properties {'sun.net.inetaddr.ttl': 0}
+[2020-01-19 23:58:37,843 DEBUG Engine] New artifact filename: /tmp/artifacts/system.properties
+[2020-01-19 23:58:37,846 DEBUG Engine.jmeter] Additional properties: {'jmeter.save.saveservice.autoflush': 'true', 'jmeter.save.saveservice.connect_time': 'true', 'jmeterengine.force.system.exit': 'true', 'summariser.name': '', 'jmeterengine.nongui.port': 4445, 'jmeterengine.nongui.maxport': 4445, 'jmeter.save.saveservice.timestamp_format': 'ms', 'sampleresult.default.encoding': 'UTF-8', 'user.classpath': '/tmp/artifacts:/tmp/artifacts'}
+[2020-01-19 23:58:37,846 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter-bzt.properties
+[2020-01-19 23:58:37,850 DEBUG Engine.jmeter.JavaVM] Trying JavaVM: ['java', '-version']
+[2020-01-19 23:58:37,850 DEBUG root] Executing shell: ['java', '-version'] at .
+[2020-01-19 23:58:38,092 DEBUG Engine.jmeter.JavaVM] JavaVM output: openjdk version "1.8.0_222"
+OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10)
+OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
+
+[2020-01-19 23:58:38,093 DEBUG Engine.jmeter.TclLibrary] We don't need to check tcl library on this platform
+[2020-01-19 23:58:38,094 DEBUG Engine.jmeter.JMeter] Trying JMeter..
+[2020-01-19 23:58:38,095 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.1.1/bin/jmeter.sh', '-j', '/tmp/jmeterqbu5gbeolog', '--version'] at .
+[2020-01-19 23:58:38,379 DEBUG urllib3.connectionpool] https://gettaurus.org:443 "GET /updates/?version=1.14.0&installID=Docker HTTP/1.1" 200 40
+[2020-01-19 23:58:38,382 DEBUG Engine] Taurus updates info: {'latest': '1.14.0', 'needsUpgrade': False}
+[2020-01-19 23:58:38,385 DEBUG Engine] Installation is up-to-date
+[2020-01-19 23:58:39,896 DEBUG Engine.jmeter.JMeter] JMeter check:     _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____     
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \   
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 5.1.1 r1855137  
+
+Copyright (c) 1999-2019 The Apache Software Foundation
+
+ / 
+[2020-01-19 23:58:39,906 DEBUG Engine] New artifact filename: /tmp/artifacts/kpi.jtl
+[2020-01-19 23:58:39,908 DEBUG Engine] New artifact filename: /tmp/artifacts/error.jtl
+[2020-01-19 23:58:39,909 DEBUG Engine.jmeter.LoadSettingsProcessor] Load: LoadSpec(concurrency=20, throughput=None, ramp_up=60.0, hold=1140.0, iterations=0, duration=1200.0, steps=None)
+[2020-01-19 23:58:39,912 DEBUG Engine.jmeter.LoadSettingsProcessor.ThreadGroupHandler] Converting ThreadGroup (digital toys) to ConcurrencyThreadGroup and apply load parameters
+[2020-01-19 23:58:39,913 DEBUG Engine] New artifact filename: /tmp/artifacts/modified_requests.jmx
+[2020-01-19 23:58:39,914 DEBUG JMX] Saving JMX to: /tmp/artifacts/modified_requests.jmx
+[2020-01-19 23:58:39,922 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.1.1/bin/PluginsManagerCMD.sh', 'install-for-jmx', '/tmp/artifacts/modified_requests.jmx'] at .
+[2020-01-19 23:58:43,665 DEBUG Engine.jmeter.JMeter] Try to detect plugins for /tmp/artifacts/modified_requests.jmx
+2020-01-19 23:58:40,816 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2020-01-19 23:58:40,879 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-b4c77fdc8199a25d563ca51651ee83f7-nongui
+2020-01-19 23:58:42,714 INFO o.j.r.PluginManager: Plugins Status: [jpgc-functions=2.1, jpgc-casutg=2.9, jpgc-dummy=0.4, jpgc-ffw=2.0, jpgc-fifo=0.2, jpgc-json=2.7, jpgc-prmctl=0.4, jpgc-perfmon=2.1, jpgc-plugins-manager=1.3, jpgc-tst=2.5, jmeter-core=5.1.1, jmeter-ftp=5.1.1, jmeter-http=5.1.1, jmeter-jdbc=5.1.1, jmeter-jms=5.1.1, jmeter-junit=5.1.1, jmeter-java=5.1.1, jmeter-ldap=5.1.1, jmeter-mail=5.1.1, jmeter-mongodb=5.1.1, jmeter-native=5.1.1, jmeter-tcp=5.1.1, jmeter-components=5.1.1]
+2020-01-19 23:58:42,717 INFO o.j.r.PluginManagerCMD: Params line is: /tmp/artifacts/modified_requests.jmx
+2020-01-19 23:58:43,192 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2020-01-19 23:58:43,262 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2020-01-19 23:58:43,269 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2020-01-19 23:58:43,333 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2020-01-19 23:58:43,340 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2020-01-19 23:58:43,453 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-01-19 23:58:43,454 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-01-19 23:58:43,454 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-01-19 23:58:43,456 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-01-19 23:58:43,457 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2020-01-19 23:58:43,458 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2020-01-19 23:58:43,558 INFO o.j.r.PluginManager: Finishing without changes
+
+
+[2020-01-19 23:58:43,667 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.out
+[2020-01-19 23:58:43,669 DEBUG Engine] New artifact filename: /tmp/artifacts/jmeter.err
+[2020-01-19 23:58:43,673 DEBUG Engine] Module config: final-stats {'class': 'bzt.modules.reporting.FinalStatus'}
+[2020-01-19 23:58:43,674 DEBUG root] Importing module: bzt.modules.reporting
+[2020-01-19 23:58:43,689 DEBUG easyprocess] version=0.2.7
+[2020-01-19 23:58:43,692 DEBUG pyvirtualdisplay] version=0.2.4
+[2020-01-19 23:58:43,695 DEBUG root] Loading class: 'FinalStatus' from <module 'bzt.modules.reporting' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/reporting.py'>
+[2020-01-19 23:58:43,696 DEBUG Engine] Module config: console {'class': 'bzt.modules.console.ConsoleStatusReporter'}
+[2020-01-19 23:58:43,696 DEBUG root] Importing module: bzt.modules.console
+[2020-01-19 23:58:43,697 DEBUG root] Loading class: 'ConsoleStatusReporter' from <module 'bzt.modules.console' from '/usr/local/lib/python3.6/dist-packages/bzt/modules/console.py'>
+[2020-01-19 23:58:43,705 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:58:43,756 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:58:43,759 INFO Engine] Starting...
+[2020-01-19 23:58:43,760 DEBUG Engine] Startup <bzt.modules.monitoring.Monitoring object at 0x7fbc49f6bd30>
+[2020-01-19 23:58:43,761 DEBUG Engine] Startup <bzt.modules.aggregator.ConsolidatingAggregator object at 0x7fbc49f6bcf8>
+[2020-01-19 23:58:43,762 DEBUG Engine] Startup <bzt.modules.reporting.FinalStatus object at 0x7fbc332d9e10>
+[2020-01-19 23:58:43,763 DEBUG Engine] Startup <bzt.modules.console.ConsoleStatusReporter object at 0x7fbc332f00b8>
+[2020-01-19 23:58:43,764 INFO Engine.console] Waiting for results...
+[2020-01-19 23:58:43,764 DEBUG Engine] Startup <bzt.modules.provisioning.Local object at 0x7fbc49ffa438>
+[2020-01-19 23:58:43,765 DEBUG Engine.local] Delay setup for jmeter/digital toys: 0(start-at) + 0(delay) = 0
+[2020-01-19 23:58:43,772 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2020-01-19 23:58:43,825 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2020-01-19 23:58:43,829 DEBUG root] Leveling down log file verbosity to INFO, use -v option to have DEBUG messages enabled
+[2020-01-19 23:58:43,830 DEBUG root] Leveled up log file verbosity
+[2020-01-19 23:58:43,831 DEBUG root] Executing shell: ['/root/.bzt/jmeter-taurus/5.1.1/bin/jmeter.sh', '-t', '/tmp/artifacts/modified_requests.jmx', '-j', '/tmp/artifacts/jmeter.log', '-q', '/tmp/artifacts/jmeter-bzt.properties', '-n', '-S', '/tmp/artifacts/system.properties'] at /bzt-configs
+[2020-01-19 23:58:43,838 DEBUG Engine.local] Starting execution: jmeter/digital toys, rest of available slots: 9223372036854775806
+[2020-01-19 23:58:43,841 DEBUG root] Leveling down log file verbosity to INFO, use -v option to have DEBUG messages enabled
+[2020-01-19 23:58:54,874 INFO Engine.console] Current: 1 vu	0 succ	1 fail	0.036 avg rt	/	Cumulative: 0.036 avg rt, 100% failures
+[2020-01-19 23:58:57,873 INFO Engine.console] Current: 2 vu	0 succ	1 fail	0.002 avg rt	/	Cumulative: 0.019 avg rt, 100% failures
+[2020-01-19 23:59:00,881 INFO Engine.console] Current: 3 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.013 avg rt, 100% failures
+[2020-01-19 23:59:03,883 INFO Engine.console] Current: 4 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.010 avg rt, 100% failures
+[2020-01-19 23:59:06,891 INFO Engine.console] Current: 5 vu	0 succ	1 fail	0.000 avg rt	/	Cumulative: 0.008 avg rt, 100% failures
+[2020-01-19 23:59:09,895 INFO Engine.console] Current: 6 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.007 avg rt, 100% failures
+[2020-01-19 23:59:12,901 INFO Engine.console] Current: 7 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.006 avg rt, 100% failures
+[2020-01-19 23:59:15,904 INFO Engine.console] Current: 8 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.005 avg rt, 100% failures
+[2020-01-19 23:59:18,919 INFO Engine.console] Current: 9 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.005 avg rt, 100% failures
+[2020-01-19 23:59:21,917 INFO Engine.console] Current: 10 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.004 avg rt, 100% failures
+[2020-01-19 23:59:24,919 INFO Engine.console] Current: 11 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.004 avg rt, 100% failures
+[2020-01-19 23:59:27,930 INFO Engine.console] Current: 12 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.003 avg rt, 100% failures
+[2020-01-19 23:59:30,933 INFO Engine.console] Current: 13 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.003 avg rt, 100% failures
+[2020-01-19 23:59:33,942 INFO Engine.console] Current: 14 vu	0 succ	4 fail	0.002 avg rt	/	Cumulative: 0.003 avg rt, 100% failures
+[2020-01-19 23:59:35,941 INFO Engine.console] Current: 15 vu	0 succ	4 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:37,946 INFO Engine.console] Current: 16 vu	0 succ	5 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:39,959 INFO Engine.console] Current: 16 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:41,954 INFO Engine.console] Current: 17 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:43,956 INFO Engine.console] Current: 18 vu	0 succ	7 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:44,959 INFO Engine.console] Current: 18 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:45,962 INFO Engine.console] Current: 18 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:46,963 INFO Engine.console] Current: 19 vu	0 succ	7 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:47,954 INFO Engine.console] Current: 19 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:48,965 INFO Engine.console] Current: 19 vu	0 succ	1 fail	0.001 avg rt	/	Cumulative: 0.002 avg rt, 100% failures
+[2020-01-19 23:59:49,972 INFO Engine.console] Current: 19 vu	0 succ	8 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:50,973 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:51,977 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:52,963 INFO Engine.console] Current: 20 vu	0 succ	6 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:53,974 INFO Engine.console] Current: 20 vu	0 succ	4 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:54,980 INFO Engine.console] Current: 20 vu	0 succ	2 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:55,968 INFO Engine.console] Current: 20 vu	0 succ	6 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:56,979 INFO Engine.console] Current: 20 vu	0 succ	5 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:57,987 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:59,000 INFO Engine.console] Current: 20 vu	0 succ	7 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-19 23:59:59,974 INFO Engine.console] Current: 20 vu	0 succ	4 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:00,988 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:01,988 INFO Engine.console] Current: 20 vu	0 succ	6 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:02,992 INFO Engine.console] Current: 20 vu	0 succ	5 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:03,999 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:04,983 INFO Engine.console] Current: 20 vu	0 succ	6 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:05,995 INFO Engine.console] Current: 20 vu	0 succ	5 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:07,003 INFO Engine.console] Current: 20 vu	0 succ	3 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures
+[2020-01-20 00:00:07,989 INFO Engine.console] Current: 20 vu	0 succ	8 fail	0.001 avg rt	/	Cumulative: 0.001 avg rt, 100% failures

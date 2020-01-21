@@ -3,7 +3,7 @@
 
 execution:
   - scenario: digital toys
-    concurrency: 20
+    concurrency: 40
     ramp-up: 1m
     hold-for: 19m
 scenarios:
